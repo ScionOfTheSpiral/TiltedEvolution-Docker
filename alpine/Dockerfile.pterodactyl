@@ -1,6 +1,6 @@
 ARG VERSION=1.7.1
 
-FROM ad3m3r5/tiltedevolution:server-$VERSION AS server
+FROM nanowarp67/skyrimwithfriends:server-$VERSION AS server
 
 FROM alpine:3.18
 

@@ -1,6 +1,6 @@
 ARG VERSION=1.7.1
 
-FROM nanowarp67/tiltedevolution:server-$VERSION-debian AS server
+FROM nanowarp67/skyrimwithfriends:server-$VERSION-debian AS server
 
 FROM debian:12
 

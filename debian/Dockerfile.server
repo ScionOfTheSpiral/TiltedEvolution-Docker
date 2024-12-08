@@ -1,5 +1,5 @@
 # Build Container
-FROM nanowarp67/tiltedevolution:builder-latest-debian AS builder
+FROM nanowarp67/skyrimwithfriends:builder-latest-debian AS builder
 
 ARG REPO=https://github.com/tiltedphoques/TiltedEvolution.git
 ARG BRANCH=v1.7.1
