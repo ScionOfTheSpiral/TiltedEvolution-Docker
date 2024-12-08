@@ -61,24 +61,24 @@ jobs:
           push: true
           file: alpine/Dockerfile.server
           platforms: ${{ env.PLATFORMS }}
-          #   tiltedevolution-server
+          #   skyrimwithfriends-server
           #     latest
           #     {{ TAG }}
-          #   tiltedevolution
+          #   skyrimwithfriends
           #     server
           #     server-latest
           #     server-{{ TAG }}
           tags: |
-            ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution-server:latest
-            ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution-server:${{ env.GIT_TAG }}
-            ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:server
-            ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:server-latest
-            ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:server-${{ env.GIT_TAG }}
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution-server:latest
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution-server:${{ env.GIT_TAG }}
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution:server
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution:server-latest
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution:server-${{ env.GIT_TAG }}
+            ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends-server:latest
+            ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends-server:${{ env.GIT_TAG }}
+            ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:server
+            ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:server-latest
+            ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:server-${{ env.GIT_TAG }}
+            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends-server:latest
+            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends-server:${{ env.GIT_TAG }}
+            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:server
+            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:server-latest
+            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:server-${{ env.GIT_TAG }}
           build-args: |
             BRANCH=${{ env.GIT_TAG_V }}
 
@@ -89,23 +89,23 @@ jobs:
           push: true
           file: alpine/Dockerfile.pterodactyl
           platforms: ${{ env.PLATFORMS }}
-          #   tiltedevolution-pterodactyl
+          #   skyrimwithfriends-pterodactyl
           #     latest
           #     {{ TAG }}
-          #   tiltedevolution
+          #   skyrimwithfriends
           #     pterodactyl
           #     pterodactyl-latest
           #     pterodactyl-{{ TAG }}
           tags: |
-            ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution-pterodactyl:latest
-            ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution-pterodactyl:${{ env.GIT_TAG }}
-            ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:pterodactyl
-            ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:pterodactyl-latest
-            ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:pterodactyl-${{ env.GIT_TAG }}
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution-pterodactyl:latest
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution-pterodactyl:${{ env.GIT_TAG }}
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution:pterodactyl
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution:pterodactyl-latest
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution:pterodactyl-${{ env.GIT_TAG }}
+            ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends-pterodactyl:latest
+            ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends-pterodactyl:${{ env.GIT_TAG }}
+            ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:pterodactyl
+            ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:pterodactyl-latest
+            ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:pterodactyl-${{ env.GIT_TAG }}
+            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends-pterodactyl:latest
+            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends-pterodactyl:${{ env.GIT_TAG }}
+            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:pterodactyl
+            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:pterodactyl-latest
+            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:pterodactyl-${{ env.GIT_TAG }}
           build-args: |
             VERSION=${{ env.GIT_TAG }}

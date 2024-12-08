@@ -50,13 +50,13 @@ jobs:
           #     builder-latest
           #     builder-{{ TAG }}
           tags: |
-            ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution-builder:latest
-            ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution-builder:${{ env.TAG }}
-            ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:builder
-            ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:builder-latest
-            ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:builder-${{ env.TAG }}
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution-builder:latest
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution-builder:${{ env.TAG }}
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution:builder
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution:builder-latest
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution:builder-${{ env.TAG }}
+            ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends-builder:latest
+            ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends-builder:${{ env.TAG }}
+            ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:builder
+            ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:builder-latest
+            ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:builder-${{ env.TAG }}
+            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends-builder:latest
+            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends-builder:${{ env.TAG }}
+            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:builder
+            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:builder-latest
+            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:builder-${{ env.TAG }}
