@@ -1,4 +1,4 @@
-ARG VERSION=latest
+ARG VERSION=1.7.1
 
 FROM ad3m3r5/tiltedevolution:server-$VERSION AS server
 
@@ -17,7 +17,7 @@ RUN apk upgrade --no-cache \
       libstdc++ \
     && adduser --disabled-password --home /home/$USER $USER
 
-COPY --from=server --chown=container:container /home/tilted/libSTServer.so /home/server/libSTServer.so 
+COPY --from=server --chown=container:container /home/tilted/libSTServer.so /home/server/libSTServer.so
 COPY --from=server --chown=container:container /home/tilted/crashpad_handler /home/server/crashpad_handler
 COPY --from=server --chown=container:container /home/tilted/SkyrimTogetherServer /home/server/SkyrimTogetherServer
 

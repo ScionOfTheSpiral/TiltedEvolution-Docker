@@ -1,6 +1,6 @@
-ARG VERSION=latest
+ARG VERSION=1.7.1
 
-FROM ad3m3r5/tiltedevolution:server-$VERSION-debian AS server
+FROM nanowarp67/tiltedevolution:server-$VERSION-debian AS server
 
 FROM debian:12
 
@@ -11,7 +11,7 @@ ENV USER=$USER \
 
 RUN adduser --disabled-password --gecos "" $USER
 
-COPY --from=server --chown=container:container /home/tilted/libSTServer.so /home/server/libSTServer.so 
+COPY --from=server --chown=container:container /home/tilted/libSTServer.so /home/server/libSTServer.so
 COPY --from=server --chown=container:container /home/tilted/crashpad_handler /home/server/crashpad_handler
 COPY --from=server --chown=container:container /home/tilted/SkyrimTogetherServer /home/server/SkyrimTogetherServer
 

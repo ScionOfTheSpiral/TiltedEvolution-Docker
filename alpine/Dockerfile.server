@@ -1,8 +1,8 @@
 # Build Container
-FROM ad3m3r5/tiltedevolution:builder-latest AS builder
+FROM nanowarp67/tiltedevolution:builder-latest AS builder
 
 ARG REPO=https://github.com/tiltedphoques/TiltedEvolution.git
-ARG BRANCH=master
+ARG BRANCH=v1.7.1
 
 SHELL ["/bin/bash", "-c"]
 
