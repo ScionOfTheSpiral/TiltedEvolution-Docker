@@ -36,6 +36,12 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: set lower case owner name
+        run: |
+          echo "OWNER_LC=${OWNER,,}" >>${GITHUB_ENV}
+        env:
+          OWNER: '${{ github.repository_owner }}'
+
       - name: Build and push - builder [debian]
         uses: docker/build-push-action@v6
         with:
@@ -55,8 +61,8 @@ jobs:
             ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:builder-debian
             ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:builder-latest-debian
             ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:builder-${{ env.TAG }}-debian
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends-builder:latest-debian
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends-builder:${{ env.TAG }}-debian
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:builder-debian
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:builder-latest-debian
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:builder-${{ env.TAG }}-debian
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends-builder:latest-debian
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends-builder:${{ env.TAG }}-debian
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends:builder-debian
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends:builder-latest-debian
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends:builder-${{ env.TAG }}-debian

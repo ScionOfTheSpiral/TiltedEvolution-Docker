@@ -54,6 +54,12 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: set lower case owner name
+        run: |
+          echo "OWNER_LC=${OWNER,,}" >>${GITHUB_ENV}
+        env:
+          OWNER: '${{ github.repository_owner }}'
+
       - name: Build and push - server
         uses: docker/build-push-action@v6
         if: ${{ env.GIT_TAG != env.DOCKER_TAG}}
@@ -74,11 +80,11 @@ jobs:
             ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:server
             ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:server-latest
             ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:server-${{ env.GIT_TAG }}
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends-server:latest
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends-server:${{ env.GIT_TAG }}
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:server
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:server-latest
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:server-${{ env.GIT_TAG }}
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends-server:latest
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends-server:${{ env.GIT_TAG }}
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends:server
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends:server-latest
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends:server-${{ env.GIT_TAG }}
           build-args: |
             BRANCH=${{ env.GIT_TAG_V }}
 
@@ -102,10 +108,10 @@ jobs:
             ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:pterodactyl
             ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:pterodactyl-latest
             ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:pterodactyl-${{ env.GIT_TAG }}
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends-pterodactyl:latest
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends-pterodactyl:${{ env.GIT_TAG }}
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:pterodactyl
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:pterodactyl-latest
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:pterodactyl-${{ env.GIT_TAG }}
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends-pterodactyl:latest
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends-pterodactyl:${{ env.GIT_TAG }}
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends:pterodactyl
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends:pterodactyl-latest
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends:pterodactyl-${{ env.GIT_TAG }}
           build-args: |
             VERSION=${{ env.GIT_TAG }}

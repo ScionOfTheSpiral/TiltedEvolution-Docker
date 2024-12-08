@@ -36,6 +36,12 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: set lower case owner name
+        run: |
+          echo "OWNER_LC=${OWNER,,}" >>${GITHUB_ENV}
+        env:
+          OWNER: '${{ github.repository_owner }}'
+
       - name: Build and push - builder [alpine]
         uses: docker/build-push-action@v6
         with:
@@ -55,8 +61,8 @@ jobs:
             ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:builder
             ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:builder-latest
             ${{ vars.DOCKERHUB_USERNAME }}/skyrimwithfriends:builder-${{ env.TAG }}
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends-builder:latest
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends-builder:${{ env.TAG }}
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:builder
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:builder-latest
-            ghcr.io/${{ github.repository_owner }}/skyrimwithfriends:builder-${{ env.TAG }}
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends-builder:latest
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends-builder:${{ env.TAG }}
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends:builder
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends:builder-latest
+            ghcr.io/${{ env.OWNER_LC }}/skyrimwithfriends:builder-${{ env.TAG }}
